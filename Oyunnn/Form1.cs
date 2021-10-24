@@ -11,11 +11,12 @@ namespace Oyunnn
 {
     public partial class Form1 : Form
     {
-        //Samet Uçar
+       
         public Form1()
         {
             InitializeComponent();
         }
+        int puan;
         Mayin_tarlasi mayin_tarlamiz;
         Image mayin_Resmi = Image.FromFile(@"mayin.png");
         List<Mayin> mayinlarimiz;
@@ -73,6 +74,8 @@ namespace Oyunnn
             {
                 MessageBox.Show("Kaybettin");
                 Mayinlari_goster();
+                puan = 0;
+                label1.Text = puan.ToString();
             }
             else
 
@@ -80,7 +83,7 @@ namespace Oyunnn
                 int s = etrafta_kac_mayin_var(myn);
                 if (s == 0)
                 {
-
+                   
                     mayinlarimiz.Add(myn);
                     for (int i = 0; i < mayinlarimiz.Count; i++)
                     {
@@ -92,17 +95,18 @@ namespace Oyunnn
                                 Button btnx = (Button)panel1.Controls.Find(item.konum_al.X + "" + item.konum_al.Y, false)[0];
                                 if (etrafta_kac_mayin_var(mayinlarimiz[i]) == 0)
                                 {
-
+                                   
                                     btnx.Enabled = false;
 
                                     cevresindekileri_ekle(item);
                                 }
                                 else
                                 {
-                                    btnx.Text = etrafta_kac_mayin_var(item).ToString();
-
+                                 btnx.Text = etrafta_kac_mayin_var(item).ToString();
                                 }
                                 bulunan_temiz_alan++;
+                                puan += 10;
+                                label1.Text = puan.ToString();
                                 item.bakildi_ = true;
                             }
                         }
@@ -111,6 +115,8 @@ namespace Oyunnn
                 else
                 {
                     btn.Text = s.ToString();
+                    puan += 10;
+                    label1.Text = puan.ToString();
                     bulunan_temiz_alan++;
                 }
 
