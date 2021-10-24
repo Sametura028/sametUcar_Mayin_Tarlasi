@@ -11,6 +11,7 @@ namespace Oyunnn
 {
     public partial class Form1 : Form
     {
+        //Samet Uçar
         public Form1()
         {
             InitializeComponent();
