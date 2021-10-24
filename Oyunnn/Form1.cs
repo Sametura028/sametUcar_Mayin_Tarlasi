@@ -76,6 +76,7 @@ namespace Oyunnn
                 Mayinlari_goster();
                 puan = 0;
                 label1.Text = puan.ToString();
+                this.BackColor = Color.Red;
             }
             else
 
@@ -250,6 +251,7 @@ namespace Oyunnn
         {
 
             panel1.Controls.Clear();
+            this.BackColor = Color.White;
             yeni_oyun_baslat();
         }
     }
